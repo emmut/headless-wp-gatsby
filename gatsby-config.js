@@ -7,7 +7,7 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: 'MySweetSite',
+    title: 'emmut',
   },
   plugins: [
     `gatsby-plugin-sass`,
