@@ -1,9 +1,9 @@
 import React from 'react'
-import Container from '../components/Container'
+import Layout from '../components/Layout'
 
 export default function Home() {
   return (
-    <Container headerText="Welcome to my Gatsby Site">
+    <Layout headerText="Welcome to my Gatsby Site">
       <h1>Hello Gatsby!</h1>
       <p>What a world.</p>
       <div>
@@ -13,6 +13,6 @@ export default function Home() {
           websites.
         </p>
       </div>
-    </Container>
+    </Layout>
   )
 }

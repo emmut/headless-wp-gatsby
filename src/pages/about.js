@@ -1,12 +1,12 @@
-import React from "react"
-import Container from "../components/Container"
+import React from 'react'
+import Layout from '../components/Layout'
 
 export default function About() {
   return (
-    <Container headerText="About">
+    <Layout headerText="About">
       <div style={{ color: `teal` }}>
         <p>Such wow. Very React.</p>
       </div>
-    </Container>
+    </Layout>
   )
 }

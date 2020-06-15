@@ -2,7 +2,7 @@ import React from 'react'
 import containerStyles from '../styles/container.module.scss'
 import Header from './Header'
 
-export default function Container({ children, headerText }) {
+export default function Layout({ children, headerText }) {
   return (
     <div className={containerStyles.container}>
       <Header headerText={headerText} />
