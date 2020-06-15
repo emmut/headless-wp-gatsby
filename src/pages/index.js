@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import Container from '../components/Container'
 
 export default function Home() {

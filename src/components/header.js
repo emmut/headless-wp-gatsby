@@ -1,6 +1,6 @@
 import React from 'react'
 import headerStyles from '../styles/header.module.scss'
-import { Link } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 
 const ListLink = props => (
   <li>
@@ -9,6 +9,17 @@ const ListLink = props => (
 )
 
 export default function Header(props) {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `
+  )
   return (
     <>
       <header className={headerStyles.header}>
@@ -19,13 +30,16 @@ export default function Header(props) {
         />
         <div class={headerStyles.siteNav}>
           <Link to="/">
-            <h3 className={headerStyles.header__logotype}>MySweetSite</h3>
+            <h3 className={headerStyles.header__logotype}>
+              {data.site.siteMetadata.title}
+            </h3>
           </Link>
           <nav className="links">
             <ListLink to="/">Home</ListLink>
             <ListLink to="/about">About</ListLink>
             <ListLink to="/contact">Contact</ListLink>
             <ListLink to="/about-css-modules">Modules</ListLink>
+            <ListLink to="/my-files">Files</ListLink>
           </nav>
         </div>
       </header>
