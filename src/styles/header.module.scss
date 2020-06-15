@@ -1,0 +1,28 @@
+$size: 30rem;
+
+.header {
+  &__logotype {
+    margin: 0;
+  }
+  &__img {
+    width: 100vw;
+    max-width: 1000%;
+    margin-left: calc(50% - 50vw);
+    max-height: $size;
+    margin-top: -3rem;
+  }
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  li {
+    display: inline;
+
+    + li {
+      margin-left: 2rem;
+    }
+  }
+}

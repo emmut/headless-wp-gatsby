@@ -1,4 +1,4 @@
-require("./src/styles/global.css")
+// require("./src/styles/global.css")
 
 exports.shouldUpdateScroll = () => {
   return false

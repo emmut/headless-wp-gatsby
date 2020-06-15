@@ -1,6 +1,6 @@
 import React from 'react'
-import containerStyles from './container.module.scss'
-import Header from './header'
+import containerStyles from '../styles/container.module.scss'
+import Header from './Header'
 
 export default function Container({ children, headerText }) {
   return (
