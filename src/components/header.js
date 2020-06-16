@@ -28,7 +28,7 @@ export default function Header(props) {
           src="https://source.unsplash.com/random/1500x800"
           alt=""
         />
-        <div class={headerStyles.siteNav}>
+        <div className={headerStyles.siteNav}>
           <Link to="/">
             <h3 className={headerStyles.header__logotype}>
               {data.site.siteMetadata.title}
