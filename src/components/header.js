@@ -1,6 +1,7 @@
 import React from 'react'
 import headerStyles from '../styles/header.module.scss'
 import { graphql, useStaticQuery, Link } from 'gatsby'
+import SEO from './SEO'
 
 const ListLink = props => (
   <li>
@@ -22,12 +23,13 @@ export default function Header(props) {
   )
   return (
     <>
+      <SEO title={data.site.siteMetadata.title} />
       <header className={headerStyles.header}>
-        <img
+        {/* <img
           className={headerStyles.header__img}
           src="https://source.unsplash.com/random/1500x800"
           alt=""
-        />
+        /> */}
         <div className={headerStyles.siteNav}>
           <Link to="/">
             <h3 className={headerStyles.header__logotype}>
