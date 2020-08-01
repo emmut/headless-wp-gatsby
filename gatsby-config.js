@@ -43,5 +43,11 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-plugin-apollo',
+      options: {
+        uri: 'https://emmut.io/wp/graphql',
+      },
+    },
   ],
 }
