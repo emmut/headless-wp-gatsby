@@ -39,7 +39,3 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
-
-exports.onCreateNode = ({ node }) => {
-  console.log(node.internal.type)
-}
