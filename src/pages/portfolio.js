@@ -14,12 +14,12 @@ export const PortfolioItem = ({ data }) => {
   )
 }
 export default function Test({ data }) {
-  const portfolio = data.emmut.portfolios
+  console.log(data)
 
   return (
     <Layout headerText={title}>
       <SEO title={title} />
-      {portfolio.edges.map((node, key) => (
+      {data.allWpPortfolio.edges.map((node, key) => (
         <PortfolioItem key={key} data={node} />
       ))}
     </Layout>
@@ -28,13 +28,11 @@ export default function Test({ data }) {
 
 export const query = graphql`
   query PortfolioQuery {
-    emmut {
-      portfolios {
-        edges {
-          node {
-            content
-            title
-          }
+    allWpPortfolio(sort: { fields: date, order: DESC }) {
+      edges {
+        node {
+          content
+          title
         }
       }
     }

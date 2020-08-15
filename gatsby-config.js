@@ -44,18 +44,26 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     // Simple config, passing URL
+    // {
+    //   resolve: 'gatsby-source-graphql',
+    //   options: {
+    //     // Arbitrary name for the remote schema Query type
+    //     typeName: 'GraphEmmut',
+    //     // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+    //     fieldName: 'emmut',
+    //     // Url to query from
+    //     url: 'http://gatsby.local/graphql',
+    //     // refetch interval in seconds
+    //     refetchInterval: 60,
+    //   },
+    // },
     {
-      resolve: 'gatsby-source-graphql',
+      resolve: 'gatsby-source-wordpress-experimental',
       options: {
-        // Arbitrary name for the remote schema Query type
-        typeName: 'GraphEmmut',
-        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
-        fieldName: 'emmut',
-        // Url to query from
         url: 'http://gatsby.local/graphql',
-        // refetch interval in seconds
-        refetchInterval: 60,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
   ],
 }
