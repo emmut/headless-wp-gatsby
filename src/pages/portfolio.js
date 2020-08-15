@@ -14,8 +14,6 @@ export const PortfolioItem = ({ data }) => {
   )
 }
 export default function Test({ data }) {
-  console.log(data)
-
   return (
     <Layout headerText={title}>
       <SEO title={title} />
