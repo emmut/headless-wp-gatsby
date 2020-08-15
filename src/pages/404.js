@@ -1,5 +1,12 @@
 import React from 'react'
+import Layout from '../components/Layout'
 
-export default function notFound() {
-  return <div>This is 404</div>
+export default function fourZeroFour() {
+  return (
+    <Layout headerText="404">
+      <div style={{ color: `teal` }}>
+        <p>Page not found</p>
+      </div>
+    </Layout>
+  )
 }
