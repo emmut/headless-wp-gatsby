@@ -52,7 +52,7 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: 'emmut',
         // Url to query from
-        url: 'http://test.local/graphql',
+        url: 'http://gatsby.local/graphql',
         // refetch interval in seconds
         refetchInterval: 60,
       },

@@ -1,25 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Layout from '../components/Layout'
 import { graphql } from 'gatsby'
+import SEO from '../components/SEO'
 
-export const PortfolioItem = data => {
-  console.log(data.node)
+const title = 'Pulling content from WP'
+
+export const PortfolioItem = ({ data }) => {
   return (
     <div className="portfolioItem">
-      <h1>Test</h1>
-      {/* <h2>{data.node.title}</h2> */}
-      {/* <p>{data.node.content}</p> */}
+      <h1 dangerouslySetInnerHTML={{ __html: data.node.title }} />
+      <div dangerouslySetInnerHTML={{ __html: data.node.content }} />
     </div>
   )
 }
 export default function Test({ data }) {
-  const [portfolio, setPortfolio] = useState(data.emmut.portfolios)
+  const portfolio = data.emmut.portfolios
 
-  useEffect(() => setPortfolio(data.emmut.portfolios))
-
-  // console.log(portfolio)
   return (
-    <Layout headerText="Testing">
+    <Layout headerText={title}>
+      <SEO title={title} />
       {portfolio.edges.map((node, key) => (
         <PortfolioItem key={key} data={node} />
       ))}
