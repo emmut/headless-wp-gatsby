@@ -6,13 +6,12 @@ export default function Home({ data }) {
   return (
     <Layout headerText="Welcome to my Gatsby Site">
       {<h1>{Object.keys(data.allWpPost.edges).length} Posts</h1>}
-      {data.allWpPost.edges.map(post => (
-        <div key={post.node.id}>
-          {console.log(post.node)}
-          <Link to={post.node.slug}>
-            <h3>{post.node.title}</h3>
-            {post.node.title} <strong>— {post.node.date}</strong>
-            <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
+      {data.allWpPost.edges.map(({ node }) => (
+        <div key={node.id}>
+          <Link to={`/${node.slug}`}>
+            <h3>{node.title}</h3>
+            {node.title} <strong>— {node.date}</strong>
+            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
           </Link>
         </div>
       ))}

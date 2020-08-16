@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import SEO from '../components/SEO'
 
 const title = 'Pulling content from WP'
@@ -8,7 +8,9 @@ const title = 'Pulling content from WP'
 export const PortfolioItem = ({ data }) => {
   return (
     <div className="portfolioItem">
-      <h1 dangerouslySetInnerHTML={{ __html: data.node.title }} />
+      <Link to={`/${data.node.slug}`}>
+        <h1 dangerouslySetInnerHTML={{ __html: data.node.title }} />
+      </Link>
       <div dangerouslySetInnerHTML={{ __html: data.node.content }} />
     </div>
   )
@@ -31,6 +33,7 @@ export const query = graphql`
         node {
           content
           title
+          slug
         }
       }
     }
