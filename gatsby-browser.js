@@ -1,5 +1,5 @@
 // require("./src/styles/global.css")
 
-exports.shouldUpdateScroll = () => {
-  return false
-}
+// exports.shouldUpdateScroll = () => {
+//   return false
+// }
