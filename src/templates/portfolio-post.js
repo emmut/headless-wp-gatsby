@@ -3,8 +3,8 @@ import Layout from '../components/Layout'
 import { graphql } from 'gatsby'
 import SEO from '../components/SEO'
 
-export default function BlogPost({ data }) {
-  const post = data.wpPost
+export default function PortfolioPost({ data }) {
+  const post = data.wpPortfolio
   return (
     <Layout>
       <SEO title={post.title} description={post.excerpt} />
@@ -16,7 +16,7 @@ export default function BlogPost({ data }) {
 
 export const query = graphql`
   query($slug: String!) {
-    wpPost(slug: { eq: $slug }) {
+    wpPortfolio(slug: { eq: $slug }) {
       title
       content
       excerpt

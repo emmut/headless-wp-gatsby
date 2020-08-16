@@ -1,41 +1,44 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === `WpPost`) {
-    console.log(node)
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    })
-  }
-}
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  const result = await graphql(`
-    query {
-      allWpPost {
-        edges {
-          node {
-            slug
-          }
+  return graphql(`
+    {
+      allWpPost(sort: { fields: [date] }) {
+        nodes {
+          title
+          excerpt
+          content
+          slug
+        }
+      }
+      allWpPortfolio(sort: { fields: [date] }) {
+        nodes {
+          title
+          excerpt
+          content
+          slug
         }
       }
     }
-  `)
-
-  result.data.allWpPost.edges.forEach(({ node }) => {
-    createPage({
-      path: node.slug,
-      component: path.resolve(`./src/templates/blog-post.js`),
-      context: {
-        // Data passed to context is available
-        // in page queries as GraphQL variables.
-        slug: node.slug,
-      },
+  `).then(result => {
+    result.data.allWpPost.nodes.forEach(node => {
+      createPage({
+        path: node.slug,
+        component: path.resolve(`./src/templates/blog-post.js`),
+        context: {
+          slug: node.slug,
+        },
+      })
+    })
+    result.data.allWpPortfolio.nodes.forEach(node => {
+      createPage({
+        path: node.slug,
+        component: path.resolve(`./src/templates/portfolio-post.js`),
+        context: {
+          slug: node.slug,
+        },
+      })
     })
   })
 }
