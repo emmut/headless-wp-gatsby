@@ -41,7 +41,6 @@ export default function Header(props) {
             <ListLink to="/about">About</ListLink>
             <ListLink to="/contact">Contact</ListLink>
             <ListLink to="/about-css-modules">Modules</ListLink>
-            <ListLink to="/my-files">Files</ListLink>
             <ListLink to="/portfolio">Portfolio</ListLink>
           </nav>
         </div>
